@@ -2,28 +2,32 @@
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_wisi0"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qweee"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_27fy1"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="Sky" id="Sky_xuruf"]
-sky_material = SubResource("ProceduralSkyMaterial_qweee")
+[sub_resource type="Sky" id="Sky_riccb"]
+sky_material = SubResource("ProceduralSkyMaterial_27fy1")
 
-[sub_resource type="Environment" id="Environment_i8lgx"]
+[sub_resource type="Environment" id="Environment_oh53a"]
 background_mode = 2
-sky = SubResource("Sky_xuruf")
+sky = SubResource("Sky_riccb")
 tonemap_mode = 2
 glow_enabled = true
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_wisi0")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_i8lgx")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 50.4779, 0)
 shadow_enabled = true
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_oh53a")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+size = Vector3(100, 2, 100)
+
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+transform = Transform3D(1, 0, 0, 0, 0.422618, 0.906308, 0, -0.906308, 0.422618, 0, 14.5, 9.5)
