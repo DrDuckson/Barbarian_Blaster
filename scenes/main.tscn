@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://blnh2re2fs80"]
+[gd_scene load_steps=7 format=3 uid="uid://blnh2re2fs80"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_wisi0"]
+[ext_resource type="MeshLibrary" uid="uid://bnjrbjtjei14j" path="res://MeshLibraries/SpaceLibrary.tres" id="2_0n6nj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_27fy1"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -15,6 +16,9 @@ sky = SubResource("Sky_riccb")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_drrb0"]
+albedo_color = Color(0.348124, 0.174938, 0.0256111, 1)
+
 [node name="Main" type="Node3D"]
 script = ExtResource("1_wisi0")
 
@@ -28,6 +32,15 @@ environment = SubResource("Environment_oh53a")
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 size = Vector3(100, 2, 100)
+material = SubResource("StandardMaterial3D_drrb0")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.422618, 0.906308, 0, -0.906308, 0.422618, 0, 14.5, 9.5)
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("2_0n6nj")
+cell_size = Vector3(4, 4, 4)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(65535, 65534, 0, 65535, 2, 0, 0, 2, 0, 0, 65534, 0, 4, 65535, 0, 65531, 65535, 0, 65531, 65534, 0, 65532, 65534, 0, 65533, 65534, 0, 65534, 65534, 0, 1, 65534, 0, 2, 65534, 0, 3, 65534, 0, 4, 65534, 0, 4, 0, 0, 4, 1, 0, 4, 2, 0, 3, 2, 0, 2, 2, 0, 1, 2, 0, 65534, 2, 0, 65533, 2, 0, 65532, 2, 0, 65531, 2, 0, 65531, 1, 0, 65531, 0, 0)
+}
