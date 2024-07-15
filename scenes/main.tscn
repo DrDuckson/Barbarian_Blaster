@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://blnh2re2fs80"]
+[gd_scene load_steps=8 format=3 uid="uid://blnh2re2fs80"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_wisi0"]
 [ext_resource type="MeshLibrary" uid="uid://bnjrbjtjei14j" path="res://MeshLibraries/SpaceLibrary.tres" id="2_0n6nj"]
@@ -19,11 +19,18 @@ glow_enabled = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_drrb0"]
 albedo_color = Color(0.34902, 0.176471, 0.654902, 1)
 
+[sub_resource type="Curve3D" id="Curve3D_f1l7v"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -23, 0, 6, -1, 0, 1, 1, 0, -1, 10, 0, 6, 1, 0, 1, -1, 0, -1, 10, 0, -2, 1, 0, 1, -1, 0, -1, -14, 0, -2, 0, 0, 0, 0, 0, 0, -14, 0, -6),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
 [node name="Main" type="Node3D"]
 script = ExtResource("1_wisi0")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 30, 50.4779, 0)
+transform = Transform3D(-0.709405, -0.0679186, 0.701521, 0.496731, 0.657942, 0.566013, -0.500003, 0.75, -0.43301, 51.7534, 39.2618, 0)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -42,5 +49,47 @@ mesh_library = ExtResource("2_0n6nj")
 cell_size = Vector3(4, 4, 4)
 cell_center_y = false
 data = {
-"cells": PackedInt32Array(65535, 2, 0, 0, 2, 0, 0, 65534, 0, 4, 65535, 0, 65531, 65535, 0, 65531, 65534, 0, 65532, 65534, 1, 65533, 65534, 0, 65534, 65534, 0, 1, 65534, 2, 2, 65534, 0, 3, 65534, 0, 4, 65534, 0, 4, 0, 0, 4, 1, 0, 4, 2, 0, 3, 2, 0, 2, 2, 0, 1, 2, 2, 65534, 2, 0, 65533, 2, 0, 65532, 2, 0, 65531, 2, 0, 65531, 1, 3, 65531, 0, 0, 65532, 65535, 3, 65533, 65535, 3, 65534, 65535, 3, 65535, 65535, 3, 0, 65535, 3, 1, 65535, 3, 2, 65535, 3, 3, 65535, 2, 3, 0, 0, 3, 1, 2, 2, 1, 3, 1, 1, 3, 0, 1, 3, 65535, 1, 3, 65534, 1, 3, 65533, 1, 3, 65532, 1, 3, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 2, 0, 0, 0, 1, 0, 0, 2, 0, 3, 65535, 65534, 0)
+"cells": PackedInt32Array(65535, 2, 0, 0, 2, 0, 0, 65534, 0, 4, 65535, 0, 65531, 65535, 0, 65531, 65534, 0, 65532, 65534, 1, 65533, 65534, 0, 65534, 65534, 0, 1, 65534, 2, 2, 65534, 0, 3, 65534, 0, 4, 65534, 0, 4, 0, 0, 4, 1, 0, 4, 2, 0, 3, 2, 0, 2, 2, 0, 1, 2, 2, 65534, 2, 0, 65533, 2, 0, 65532, 2, 0, 65531, 2, 0, 65531, 0, 0, 3, 65535, 2, 3, 0, 0, 3, 1, 2, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 2, 0, 0, 0, 1, 0, 0, 65535, 65534, 0)
 }
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_f1l7v")
+
+[node name="Road" type="CSGPolygon3D" parent="Path3D"]
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 0.5
+path_simplify_angle = 0.0
+path_rotation = 2
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="LeftEdge" type="CSGPolygon3D" parent="Path3D"]
+polygon = PackedVector2Array(-1.1, 0, -1.1, 0.15, -0.9, 0.15, -0.9, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 0.5
+path_simplify_angle = 0.0
+path_rotation = 2
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="RightEdge" type="CSGPolygon3D" parent="Path3D"]
+polygon = PackedVector2Array(1.1, 0, 1.1, 0.15, 0.9, 0.15, 0.9, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 0.5
+path_simplify_angle = 0.0
+path_rotation = 2
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
