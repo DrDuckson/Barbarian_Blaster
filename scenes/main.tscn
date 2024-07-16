@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://blnh2re2fs80"]
+[gd_scene load_steps=10 format=3 uid="uid://blnh2re2fs80"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_wisi0"]
 [ext_resource type="MeshLibrary" uid="uid://bnjrbjtjei14j" path="res://MeshLibraries/SpaceLibrary.tres" id="2_0n6nj"]
+[ext_resource type="PackedScene" uid="uid://d0ta70q5ywxod" path="res://scenes/enemy.tscn" id="3_a6iuc"]
+[ext_resource type="PackedScene" uid="uid://crdlvag6pil6d" path="res://scenes/basis.tscn" id="4_cibqt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_27fy1"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -21,7 +23,7 @@ albedo_color = Color(0.34902, 0.176471, 0.654902, 1)
 
 [sub_resource type="Curve3D" id="Curve3D_f1l7v"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -23, 0, 6, -1, 0, 1, 1, 0, -1, 10, 0, 6, 1, 0, 1, -1, 0, -1, 10, 0, -2, 1, 0, 1, -1, 0, -1, -14, 0, -2, 0, 0, 0, 0, 0, 0, -14, 0, -6),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -23, 0, 6, -1, 0, 1, 1, 0, -1, 10, 0, 6, 1, 0, 1, -1, 0, -1, 10, 0, -2, 1, 0, 1, -1, 0, -1, -14, 0, -2, 0, 0, 0, -1, 0, -1, -14, 0, -6),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
 point_count = 5
@@ -42,7 +44,7 @@ size = Vector3(100, 2, 100)
 material = SubResource("StandardMaterial3D_drrb0")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.422618, 0.906308, 0, -0.906308, 0.422618, 0, 14.5, 9.5)
+transform = Transform3D(1, 0, 0, 0, 0.422618, 0.906308, 0, -0.906308, 0.422618, 0, 14.5, 10.5)
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("2_0n6nj")
@@ -93,3 +95,8 @@ path_local = false
 path_continuous_u = true
 path_u_distance = 1.0
 path_joined = false
+
+[node name="Enemy" parent="Path3D" instance=ExtResource("3_a6iuc")]
+transform = Transform3D(-4.37106e-08, 0, -0.999983, 0, 1, 0, 0.999983, 0, -4.37106e-08, -23, 0, 6)
+
+[node name="Basis" parent="." instance=ExtResource("4_cibqt")]
