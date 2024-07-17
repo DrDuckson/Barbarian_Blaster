@@ -5,7 +5,7 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fheta"]
 albedo_color = Color(0.923333, 1, 0.08, 1)
 
-[node name="Basis" type="Node3D"]
+[node name="Basis" type="Node3D" groups=["grBase"]]
 script = ExtResource("1_us6o8")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
@@ -14,3 +14,10 @@ radius = 2.0
 height = 4.0
 sides = 32
 material = SubResource("StandardMaterial3D_fheta")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
+billboard = 1
+text = "Health"
+font_size = 320
+outline_size = 100
