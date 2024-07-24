@@ -44,14 +44,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 size = Vector3(100, 2, 100)
 material = SubResource("StandardMaterial3D_drrb0")
 
-[node name="RayPickerCamera" parent="." instance=ExtResource("2_8350t")]
+[node name="RayPickerCamera" parent="." node_paths=PackedStringArray("gridmap") instance=ExtResource("2_8350t")]
+gridmap = NodePath("../GridMap")
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("2_0n6nj")
 cell_size = Vector3(4, 4, 4)
 cell_center_y = false
 data = {
-"cells": PackedInt32Array(65535, 2, 0, 0, 2, 0, 0, 65534, 0, 4, 65535, 0, 65531, 65535, 0, 65531, 65534, 0, 65532, 65534, 1, 65533, 65534, 0, 65534, 65534, 0, 1, 65534, 2, 2, 65534, 0, 3, 65534, 0, 4, 65534, 0, 4, 0, 0, 4, 1, 0, 4, 2, 0, 3, 2, 0, 2, 2, 0, 1, 2, 2, 65534, 2, 0, 65533, 2, 0, 65532, 2, 0, 65531, 2, 0, 65531, 0, 0, 3, 65535, 2, 3, 0, 0, 3, 1, 2, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 2, 0, 0, 0, 1, 0, 0, 65535, 65534, 0)
+"cells": PackedInt32Array(65535, 2, 0, 0, 2, 0, 0, 65534, 0, 4, 65535, 0, 65531, 65535, 0, 65531, 65534, 0, 65532, 65534, 1, 65533, 65534, 0, 65534, 65534, 0, 1, 65534, 0, 2, 65534, 0, 3, 65534, 0, 4, 65534, 0, 4, 0, 0, 4, 1, 0, 4, 2, 0, 3, 2, 0, 2, 2, 0, 1, 2, 0, 65534, 2, 0, 65533, 2, 0, 65532, 2, 0, 65531, 2, 0, 65531, 0, 0, 3, 65535, 0, 3, 0, 0, 3, 1, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 65535, 65534, 0)
 }
 
 [node name="Path3D" type="Path3D" parent="."]

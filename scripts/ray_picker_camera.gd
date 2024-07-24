@@ -1,5 +1,6 @@
 extends Camera3D
 
+@export var gridmap: GridMap
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
 
 func _process(delta: float) -> void:
@@ -9,4 +10,10 @@ func _process(delta: float) -> void:
 	
 	if ray_cast_3d.is_colliding():
 		var collider = ray_cast_3d.get_collider()
-	
+		if collider is GridMap:
+			var collision_point = ray_cast_3d.get_collision_point()
+			var cell = gridmap.local_to_map(collision_point)
+			print(cell)
+			if gridmap.get_cell_item(cell) == 0:
+				gridmap.set_cell_item(cell, 3)
+			
