@@ -27,8 +27,8 @@ albedo_color = Color(1, 0.45, 0.45, 1)
 material = SubResource("StandardMaterial3D_v8moj")
 size = Vector3(4, 0.1, 4)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bavno"]
-data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qucu8"]
+data = PackedVector3Array(-2, 0.05, 2, 2, 0.05, 2, -2, -0.05, 2, 2, 0.05, 2, 2, -0.05, 2, -2, -0.05, 2, 2, 0.05, -2, -2, 0.05, -2, 2, -0.05, -2, -2, 0.05, -2, -2, -0.05, -2, 2, -0.05, -2, 2, 0.05, 2, 2, 0.05, -2, 2, -0.05, 2, 2, 0.05, -2, 2, -0.05, -2, 2, -0.05, 2, -2, 0.05, -2, -2, 0.05, 2, -2, -0.05, -2, -2, 0.05, 2, -2, -0.05, 2, -2, -0.05, -2, 2, 0.05, 2, -2, 0.05, 2, 2, 0.05, -2, -2, 0.05, 2, -2, 0.05, -2, 2, 0.05, -2, -2, -0.05, 2, 2, -0.05, 2, -2, -0.05, -2, 2, -0.05, 2, 2, -0.05, -2, -2, -0.05, -2)
 
 [node name="SpaceLibrary" type="Node3D"]
 
@@ -53,7 +53,7 @@ shape = SubResource("ConcavePolygonShape3D_sbv28")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 mesh = SubResource("BoxMesh_ivtqe")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="EnemyPath"]
+[node name="StaticBody3D2" type="StaticBody3D" parent="EnemyPath"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyPath/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_bavno")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyPath/StaticBody3D2"]
+shape = SubResource("ConcavePolygonShape3D_qucu8")
