@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5tcqqlccc4cn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_amj5d"]
+albedo_color = Color(0.403842, 0.247678, 0.181588, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_fi76k"]
+material = SubResource("StandardMaterial3D_amj5d")
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pdje1"]
+albedo_color = Color(0.403922, 0.247059, 0.180392, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8ss1u"]
+material = SubResource("StandardMaterial3D_pdje1")
+top_radius = 0.6
+bottom_radius = 0.6
+height = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2se6k"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_suxdm"]
+material = SubResource("StandardMaterial3D_2se6k")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.5
+
+[node name="Turret" type="Node3D"]
+
+[node name="TurretBase" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("CylinderMesh_fi76k")
+
+[node name="TurretTop" type="MeshInstance3D" parent="TurretBase"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("CylinderMesh_8ss1u")
+
+[node name="TurretBarrel" type="MeshInstance3D" parent="TurretBase/TurretTop"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0.8)
+mesh = SubResource("CylinderMesh_suxdm")
+skeleton = NodePath("../..")
