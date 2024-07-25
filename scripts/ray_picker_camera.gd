@@ -9,11 +9,19 @@ func _process(delta: float) -> void:
 	ray_cast_3d.force_raycast_update()
 	
 	if ray_cast_3d.is_colliding():
+		Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 		var collider = ray_cast_3d.get_collider()
 		if collider is GridMap:
-			var collision_point = ray_cast_3d.get_collision_point()
-			var cell = gridmap.local_to_map(collision_point)
-			print(cell)
-			if gridmap.get_cell_item(cell) == 0:
-				gridmap.set_cell_item(cell, 3)
-			
+			if Input.is_action_just_pressed("Lclick"):
+				change_cell_item(0, 3)
+			if Input.is_action_just_pressed("Rclick"):
+				change_cell_item(3, 0)
+	else:
+		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+				
+func change_cell_item(current_cell, dest_cell) -> void:
+	var collision_point = ray_cast_3d.get_collision_point()
+	var cell = gridmap.local_to_map(collision_point)
+	print(cell)
+	if gridmap.get_cell_item(cell) == current_cell:
+		gridmap.set_cell_item(cell, dest_cell)
