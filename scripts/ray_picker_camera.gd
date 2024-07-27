@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 				change_cell_item(3, 0)
 	else:
 		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
-				
+#Klick function
 func change_cell_item(current_cell, dest_cell) -> void:
 	var collision_point = ray_cast_3d.get_collision_point()
 	var cell = gridmap.local_to_map(collision_point)
