@@ -17,7 +17,6 @@ func _process(delta: float) -> void:
 				change_cell_item(0, 3)
 			if Input.is_action_just_pressed("Rclick"):
 				change_cell_item(3, 0)
-				turret_manager.destroy_turret()
 	else:
 		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 #Click function
@@ -25,8 +24,11 @@ func change_cell_item(current_cell, dest_cell) -> void:
 	var collision_point = ray_cast_3d.get_collision_point()
 	var cell = gridmap.local_to_map(collision_point)
 	print(cell)
+	#var tile_position = gridmap.map_to_local(cell)
 	if gridmap.get_cell_item(cell) == current_cell:
 		gridmap.set_cell_item(cell, dest_cell)
-		var tile_position = gridmap.map_to_local(cell)
-		turret_manager.build_turret(tile_position)
+	var tile_position = gridmap.map_to_local(cell)	
+	turret_manager.build_turret(tile_position)
+	#else:
+		#turret_manager.destroy_turret(tile_position)
 		
