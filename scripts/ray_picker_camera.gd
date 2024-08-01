@@ -2,6 +2,7 @@ extends Camera3D
 
 @export var gridmap: GridMap
 @export var turret_manager: Node3D
+
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
 
 func _process(delta: float) -> void:
@@ -19,7 +20,7 @@ func _process(delta: float) -> void:
 				change_cell_item(3, 0)
 	else:
 		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
-#Click function
+
 func change_cell_item(current_cell, dest_cell) -> void:
 	var collision_point = ray_cast_3d.get_collision_point()
 	var cell = gridmap.local_to_map(collision_point)
@@ -28,5 +29,3 @@ func change_cell_item(current_cell, dest_cell) -> void:
 		gridmap.set_cell_item(cell, dest_cell)
 	var tile_position = gridmap.map_to_local(cell)	
 	turret_manager.build_turret(tile_position)
-
-		
