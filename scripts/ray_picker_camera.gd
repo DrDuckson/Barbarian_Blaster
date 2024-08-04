@@ -5,7 +5,7 @@ extends Camera3D
 
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var mouse_position: Vector2 = get_viewport().get_mouse_position()
 	ray_cast_3d.target_position = project_local_ray_normal(mouse_position) * 100.0
 	ray_cast_3d.force_raycast_update()
@@ -27,5 +27,5 @@ func change_cell_item(current_cell, dest_cell) -> void:
 	print(cell)
 	if gridmap.get_cell_item(cell) == current_cell:
 		gridmap.set_cell_item(cell, dest_cell)
-	var tile_position = gridmap.map_to_local(cell)	
+	var tile_position = gridmap.map_to_local(cell)
 	turret_manager.build_turret(tile_position)
