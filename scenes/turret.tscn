@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5tcqqlccc4cn"]
+[gd_scene load_steps=9 format=3 uid="uid://c5tcqqlccc4cn"]
 
 [ext_resource type="Script" path="res://scripts/turret.gd" id="1_80xa5"]
+[ext_resource type="PackedScene" uid="uid://b27h8i5dlwkvg" path="res://scenes/projectile.tscn" id="2_bkiqp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_amj5d"]
 albedo_color = Color(0.403842, 0.247678, 0.181588, 1)
@@ -29,6 +30,7 @@ height = 0.5
 
 [node name="Turret" type="Node3D"]
 script = ExtResource("1_80xa5")
+projectile = ExtResource("2_bkiqp")
 
 [node name="TurretBase" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
