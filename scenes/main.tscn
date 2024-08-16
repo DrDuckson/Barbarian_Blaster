@@ -126,7 +126,9 @@ speed = 10.0
 
 [node name="Basis" parent="." instance=ExtResource("4_cibqt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -6)
+max_health = 6
 
-[node name="TurretManager" type="Node3D" parent="."]
+[node name="TurretManager" type="Node3D" parent="." node_paths=PackedStringArray("enemy_path")]
 script = ExtResource("6_3id6g")
 turret = ExtResource("7_j2x8f")
+enemy_path = NodePath("../Path3D")
